@@ -31,6 +31,18 @@ window.onload = () => {
     return -1; // Bounded
   }
 
+  function getColor(iterations) {
+    if (iterations === -1) {
+      return 'lightblue'; // Bounded (Inside the Mandelbrot set)
+    } else {
+      // return 'darkblue'; // Unbounded
+      const hue = 200 + (iterations / MAX_ITERATIONS) * 160; // Adjust hue range for blue glow
+      const saturation = 100; // Full saturation
+      const lightness = 50 + (iterations / MAX_ITERATIONS) * 30; // vary lightness
+      return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+  }
+
   function drawMandelbrot() {
     for (let x = 0; x < WIDTH; x++) {
       const real = MIN_X + (x / WIDTH) * (MAX_X - MIN_X);
@@ -39,11 +51,7 @@ window.onload = () => {
         const imag = MIN_Y + (y / HEIGHT) * (MAX_Y - MIN_Y);
         const c = { real, imag };
         const iterations = mandelbrot(c);
-        if (iterations === -1) {
-          ctx.fillStyle = 'lightblue'; // Bounded
-        } else {
-          ctx.fillStyle = 'darkblue'; // Unbounded
-        }
+        ctx.fillStyle = getColor(iterations);
         ctx.fillRect(x, y, 1, 1);
       }
     }
