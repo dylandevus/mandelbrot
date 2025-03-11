@@ -15,4 +15,5 @@ body {
 
   canvas {
     border-radius: 2%;
+    margin-top: 1em;
   }

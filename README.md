@@ -5,6 +5,7 @@ Mandelbrot visualization.
 Features:
 
 *   Click to zoom in the Mandelbrot
+*   Instant zoom mode and Gradual zoom mode
 *   Light blue color for bounded area (inside)
 *   Vary lightness (shades) for unbounded area
 

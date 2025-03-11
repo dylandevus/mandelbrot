@@ -8,7 +8,18 @@
   </head>
   <body>
     <h1>Mandelbrot</h1>
-    <i>Click to zoom in</i>
+    <div>Click-to-zoom mode:</div>
+    <div>
+      <label>
+        <input type="radio" name="zoomMode" value="instant" />
+        Instant Zoom
+      </label>
+      <label>
+        <input type="radio" name="zoomMode" value="gradual" checked />
+        Gradual Zoom
+      </label>
+    </div>
+
     <div>
       <canvas id="mandelbrotCanvas"></canvas>
     </div>
