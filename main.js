@@ -9,6 +9,7 @@ window.onload = () => {
 
   const MAX_ITERATIONS = 200;
   const BOUND_THRESHOLD = 4;
+  const SMALLEST_THRESHOLD = 1e-10;
 
   let isZooming = false;
   let MIN_X = -2;
@@ -89,7 +90,11 @@ window.onload = () => {
       const newMinY = imagClick - newHeight / 2;
       const newMaxY = imagClick + newHeight / 2;
 
-      if (Math.abs(newMaxX - newMinX) < 1e-10 || Math.abs(newMaxY - newMinY) < 1e-10 || currentStep >= zoomSteps) {
+      if (
+        Math.abs(newMaxX - newMinX) < SMALLEST_THRESHOLD ||
+        Math.abs(newMaxY - newMinY) < SMALLEST_THRESHOLD ||
+        currentStep >= zoomSteps
+      ) {
         isZooming = false;
         return;
       }
