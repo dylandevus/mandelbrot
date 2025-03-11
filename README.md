@@ -18,3 +18,7 @@ OR
 
 $ python -m SimpleHTTPServer
 ```
+
+Screenshot:
+
+![](screenshot.png)
