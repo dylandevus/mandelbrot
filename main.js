@@ -33,9 +33,10 @@ window.onload = () => {
 
   function drawMandelbrot() {
     for (let x = 0; x < WIDTH; x++) {
-      for (let y = 0; y < HEIGHT; y++) {
-        const real = MIN_X + (x / WIDTH) * (MAX_X - MIN_X);
-        const imag = MIN_Y + (y / HEIGHT) * (MAX_Y - MIN_Y);
+      const real = MIN_X + (x / WIDTH) * 4; // MAX_X - MIN_X = 4
+
+      for (let y = 0; y < HEIGHT; y++) {  
+        const imag = MIN_Y + (y / HEIGHT) * 4; // MAX_Y - MIN_Y = 4
         const c = { real, imag };
         const iterations = mandelbrot(c);
         if (iterations === -1) {
